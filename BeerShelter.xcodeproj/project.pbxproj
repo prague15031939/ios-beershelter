@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0D17A76B324744634752CA2D /* Pods_BeerShelter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4090806BA030F8F03B3402A /* Pods_BeerShelter.framework */; };
+		AF52309125E68F89004AF40A /* BeerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52309025E68F89004AF40A /* BeerInfoViewController.swift */; };
+		AF52309525E691EA004AF40A /* dao.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52309425E691EA004AF40A /* dao.swift */; };
+		AF52309825E69440004AF40A /* ImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52309725E69440004AF40A /* ImageCollectionViewController.swift */; };
+		AF56015425E56C4E00026FF6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF56015325E56C4E00026FF6 /* TableViewController.swift */; };
 		AF58F37625E53AB40003A512 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58F37525E53AB40003A512 /* AppDelegate.swift */; };
 		AF58F37825E53AB40003A512 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58F37725E53AB40003A512 /* SceneDelegate.swift */; };
 		AF58F37A25E53AB40003A512 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58F37925E53AB40003A512 /* LoginViewController.swift */; };
@@ -20,6 +24,10 @@
 /* Begin PBXFileReference section */
 		7B07ACCA2EC6022F5B46618A /* Pods-BeerShelter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerShelter.release.xcconfig"; path = "Target Support Files/Pods-BeerShelter/Pods-BeerShelter.release.xcconfig"; sourceTree = "<group>"; };
 		A6E991B785D79D4D08DC1639 /* Pods-BeerShelter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerShelter.debug.xcconfig"; path = "Target Support Files/Pods-BeerShelter/Pods-BeerShelter.debug.xcconfig"; sourceTree = "<group>"; };
+		AF52309025E68F89004AF40A /* BeerInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerInfoViewController.swift; sourceTree = "<group>"; };
+		AF52309425E691EA004AF40A /* dao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dao.swift; sourceTree = "<group>"; };
+		AF52309725E69440004AF40A /* ImageCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewController.swift; sourceTree = "<group>"; };
+		AF56015325E56C4E00026FF6 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		AF58F37225E53AB40003A512 /* BeerShelter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeerShelter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF58F37525E53AB40003A512 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF58F37725E53AB40003A512 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,10 +69,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		AF52309325E691C4004AF40A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AF52309425E691EA004AF40A /* dao.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		AF56012325E54C6700026FF6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				AF58F37925E53AB40003A512 /* LoginViewController.swift */,
+				AF56015325E56C4E00026FF6 /* TableViewController.swift */,
+				AF52309025E68F89004AF40A /* BeerInfoViewController.swift */,
+				AF52309725E69440004AF40A /* ImageCollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -92,6 +111,7 @@
 			children = (
 				AF58F37525E53AB40003A512 /* AppDelegate.swift */,
 				AF58F37725E53AB40003A512 /* SceneDelegate.swift */,
+				AF52309325E691C4004AF40A /* Helpers */,
 				AF56012325E54C6700026FF6 /* ViewControllers */,
 				AF58F37B25E53AB40003A512 /* Main.storyboard */,
 				AF58F37E25E53AB60003A512 /* Assets.xcassets */,
@@ -217,9 +237,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF52309825E69440004AF40A /* ImageCollectionViewController.swift in Sources */,
+				AF52309125E68F89004AF40A /* BeerInfoViewController.swift in Sources */,
 				AF58F37A25E53AB40003A512 /* LoginViewController.swift in Sources */,
 				AF58F37625E53AB40003A512 /* AppDelegate.swift in Sources */,
 				AF58F37825E53AB40003A512 /* SceneDelegate.swift in Sources */,
+				AF52309525E691EA004AF40A /* dao.swift in Sources */,
+				AF56015425E56C4E00026FF6 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
