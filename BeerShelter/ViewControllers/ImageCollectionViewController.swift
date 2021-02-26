@@ -13,19 +13,22 @@ class ImageCollectionViewController: UIViewController {
 
     @IBOutlet weak var imageCollectionView: UICollectionView!
     var photos : Array<String>?
+    var videos : Array<String>?
+    var itemCategories = ["photo", "video"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if photos == nil {
+        if photos == nil || videos == nil {
             print("error on segue")
         }
-
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
     }
     
     func openVideoPlayer(_ ref: String) {
+        print(ref)
+        
         let url = URL(string: ref)
         let player = AVPlayer(url: url!)
         
@@ -39,41 +42,57 @@ class ImageCollectionViewController: UIViewController {
 extension ImageCollectionViewController : UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos!.count
+        if section == 0 {
+            return photos!.count
+        }
+        else if section == 1 {
+            return videos!.count
+        }
+        return 0
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return itemCategories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! CustomCollectionViewCell
         
-        let border = photos!.count - 1
-        if indexPath.row < border {
+        if indexPath.section == 0 {
             let url = photos![indexPath.row]
-            downloadImage(from: URL(string: url)!, image: cell.beerImageView)
+            Utils().downloadImage(from: URL(string: url)!, image: cell.beerImageView)
         }
-        else{
-            let index = 3
-            let url = URL(string: photos![index])
-            createThumbnailOfVideoFromFileURL(videoURL: url!) {
+        else if indexPath.section == 1 {
+            let url = URL(string: videos![indexPath.row])!
+            Utils().createThumbnailOfVideoFromFileURL(videoURL: url) {
             (completion) in
-                if completion==nil{}
-                else{
+                if completion == nil {}
+                else {
                     cell.beerImageView.image = completion
                 }
-                           
             }
         }
+
         return cell
         
     }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 3 {
-            openVideoPlayer(photos![3])
+        if indexPath.section == 1 {
+            openVideoPlayer(videos![indexPath.row])
         }
         collectionView.deselectItem(at: indexPath, animated: true)
      }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sectionHeaderView", for: indexPath) as! SectionHeaderView
+        
+        let category = itemCategories[indexPath.section]
+        header.categoryTitle = category
+        return header
+    }
     
 }
 
@@ -99,3 +118,14 @@ class CustomCollectionViewCell : UICollectionViewCell {
     @IBOutlet weak var beerImageView: UIImageView!
 }
 
+class SectionHeaderView : UICollectionReusableView {
+    @IBOutlet weak var categoryTitleLabel: UILabel!
+    @IBOutlet weak var categoryImage: UIImageView!
+    
+    var categoryTitle : String! {
+        didSet {
+            categoryTitleLabel.text = categoryTitle
+            categoryImage.image = UIImage(systemName: categoryTitle)
+        }
+    }
+}

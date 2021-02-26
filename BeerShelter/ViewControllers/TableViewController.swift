@@ -62,6 +62,10 @@ class TableViewController: UIViewController {
                 destVC.info = beerList[indexPath.row]
             }
         }
+        if segue.identifier == "mapSegue" {
+            let destVC = segue.destination as! MapViewController
+            destVC.beerList = beerList
+        }
     }
 }
 
@@ -72,10 +76,15 @@ extension TableViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! CustomTableViewCell
+        //if indexPath.row % 2 == 1 {
+        //    cell.backgroundColor = UIColor.systemGray6
+        //}
         cell.titleLabel.text = beerList[indexPath.row].data()["title"] as? String
-        cell.sortLabel.text = beerList[indexPath.row].data()["sort"] as? String
+        cell.sortLabel.text = "sort: " + (beerList[indexPath.row].data()["sort"] as! String)
+        cell.manufacturerLabel.text = beerList[indexPath.row].data()["manufacturer"] as? String
+        cell.degreeLabel.text = String(format: "degree: %.1f", beerList[indexPath.row].data()["degree"] as! Double)
         let url = beerList[indexPath.row].data()["avatar"] as? String
-        downloadImage(from: URL(string: url!)!, image: cell.beerImageView)
+        Utils().downloadImage(from: URL(string: url!)!, image: cell.beerImageView)
         return cell
     }
     
@@ -84,5 +93,7 @@ extension TableViewController : UITableViewDataSource, UITableViewDelegate {
 class CustomTableViewCell : UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var sortLabel: UILabel!
+    @IBOutlet weak var manufacturerLabel: UILabel!
+    @IBOutlet weak var degreeLabel: UILabel!
     @IBOutlet weak var beerImageView: UIImageView!
 }

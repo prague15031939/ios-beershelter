@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		0D17A76B324744634752CA2D /* Pods_BeerShelter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4090806BA030F8F03B3402A /* Pods_BeerShelter.framework */; };
 		AF52309125E68F89004AF40A /* BeerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52309025E68F89004AF40A /* BeerInfoViewController.swift */; };
-		AF52309525E691EA004AF40A /* dao.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52309425E691EA004AF40A /* dao.swift */; };
+		AF52309525E691EA004AF40A /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52309425E691EA004AF40A /* utils.swift */; };
 		AF52309825E69440004AF40A /* ImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52309725E69440004AF40A /* ImageCollectionViewController.swift */; };
 		AF56015425E56C4E00026FF6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF56015325E56C4E00026FF6 /* TableViewController.swift */; };
+		AF5759B225E7DE3500454448 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5759B125E7DE3500454448 /* MapViewController.swift */; };
+		AF5759B525E7E7EF00454448 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5759B425E7E7EF00454448 /* EditViewController.swift */; };
 		AF58F37625E53AB40003A512 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58F37525E53AB40003A512 /* AppDelegate.swift */; };
 		AF58F37825E53AB40003A512 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58F37725E53AB40003A512 /* SceneDelegate.swift */; };
 		AF58F37A25E53AB40003A512 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58F37925E53AB40003A512 /* LoginViewController.swift */; };
@@ -19,15 +21,18 @@
 		AF58F37F25E53AB60003A512 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF58F37E25E53AB60003A512 /* Assets.xcassets */; };
 		AF58F38225E53AB70003A512 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF58F38025E53AB70003A512 /* LaunchScreen.storyboard */; };
 		AF58F38E25E53E510003A512 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF58F38D25E53E510003A512 /* GoogleService-Info.plist */; };
+		AFCB8B0625E859F90039531C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB8B0525E859F90039531C /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7B07ACCA2EC6022F5B46618A /* Pods-BeerShelter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerShelter.release.xcconfig"; path = "Target Support Files/Pods-BeerShelter/Pods-BeerShelter.release.xcconfig"; sourceTree = "<group>"; };
 		A6E991B785D79D4D08DC1639 /* Pods-BeerShelter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerShelter.debug.xcconfig"; path = "Target Support Files/Pods-BeerShelter/Pods-BeerShelter.debug.xcconfig"; sourceTree = "<group>"; };
 		AF52309025E68F89004AF40A /* BeerInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerInfoViewController.swift; sourceTree = "<group>"; };
-		AF52309425E691EA004AF40A /* dao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dao.swift; sourceTree = "<group>"; };
+		AF52309425E691EA004AF40A /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		AF52309725E69440004AF40A /* ImageCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewController.swift; sourceTree = "<group>"; };
 		AF56015325E56C4E00026FF6 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		AF5759B125E7DE3500454448 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		AF5759B425E7E7EF00454448 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		AF58F37225E53AB40003A512 /* BeerShelter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeerShelter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF58F37525E53AB40003A512 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF58F37725E53AB40003A512 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +42,7 @@
 		AF58F38125E53AB70003A512 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF58F38325E53AB70003A512 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF58F38D25E53E510003A512 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AFCB8B0525E859F90039531C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D4090806BA030F8F03B3402A /* Pods_BeerShelter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeerShelter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -72,7 +78,7 @@
 		AF52309325E691C4004AF40A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				AF52309425E691EA004AF40A /* dao.swift */,
+				AF52309425E691EA004AF40A /* utils.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -84,6 +90,9 @@
 				AF56015325E56C4E00026FF6 /* TableViewController.swift */,
 				AF52309025E68F89004AF40A /* BeerInfoViewController.swift */,
 				AF52309725E69440004AF40A /* ImageCollectionViewController.swift */,
+				AF5759B125E7DE3500454448 /* MapViewController.swift */,
+				AF5759B425E7E7EF00454448 /* EditViewController.swift */,
+				AFCB8B0525E859F90039531C /* RegisterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -134,6 +143,7 @@
 				AF58F36F25E53AB40003A512 /* Frameworks */,
 				AF58F37025E53AB40003A512 /* Resources */,
 				FDE106D6DD43FE6DF5B2D32D /* [CP] Embed Pods Frameworks */,
+				61FFF8068AA4A9A72E970107 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +223,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		61FFF8068AA4A9A72E970107 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeerShelter/Pods-BeerShelter-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeerShelter/Pods-BeerShelter-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeerShelter/Pods-BeerShelter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FDE106D6DD43FE6DF5B2D32D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -238,12 +265,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF52309825E69440004AF40A /* ImageCollectionViewController.swift in Sources */,
+				AFCB8B0625E859F90039531C /* RegisterViewController.swift in Sources */,
 				AF52309125E68F89004AF40A /* BeerInfoViewController.swift in Sources */,
 				AF58F37A25E53AB40003A512 /* LoginViewController.swift in Sources */,
 				AF58F37625E53AB40003A512 /* AppDelegate.swift in Sources */,
 				AF58F37825E53AB40003A512 /* SceneDelegate.swift in Sources */,
-				AF52309525E691EA004AF40A /* dao.swift in Sources */,
+				AF52309525E691EA004AF40A /* utils.swift in Sources */,
 				AF56015425E56C4E00026FF6 /* TableViewController.swift in Sources */,
+				AF5759B225E7DE3500454448 /* MapViewController.swift in Sources */,
+				AF5759B525E7E7EF00454448 /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
