@@ -17,12 +17,12 @@ class Utils {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
 
-    func downloadImage(from url: URL, image: UIImageView) {
+    func downloadImage(from url: URL, image: UIImageView, completion:  @escaping (UIImage?) -> Void) {
         getData(from: url) { data, response, error in
             guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
             DispatchQueue.main.async() {
                 image.image = UIImage(data: data)
+                completion(UIImage(data: data))
             }
         }
     }
@@ -50,7 +50,7 @@ class Utils {
     
     func uploadPhoto(_ imageView: UIImageView, completion:  @escaping (URL?) -> Void){
         
-        guard let image=imageView.image, let data=image.jpegData(compressionQuality: 0.6) else {
+        guard let image=imageView.image, let data=image.jpegData(compressionQuality: 0.3) else {
             
             print("Error uploading image")
             completion(nil)

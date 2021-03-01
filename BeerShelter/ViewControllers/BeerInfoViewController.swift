@@ -39,7 +39,7 @@ class BeerInfoViewController: UIViewController {
             extraFlavorText.text = alignText(text: "extra flavor: ", offset: 14) + (info!.data()["extra_flavor"] as! String)
             
             let url = info!.data()["avatar"] as? String
-            Utils().downloadImage(from: URL(string: url!)!, image: avatarImageView)
+            Utils().downloadImage(from: URL(string: url!)!, image: avatarImageView, completion: {_ in })
         }
     }
     

@@ -14,9 +14,12 @@ import FirebaseUI
 class TableViewController: UIViewController {
 
     @IBOutlet weak var beerTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var beerList = Array<QueryDocumentSnapshot>()
+    var viewBeerList = Array<QueryDocumentSnapshot>()
+    var beerImages : [String: UIImage] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +27,13 @@ class TableViewController: UIViewController {
         activityIndicator.alpha=1
         activityIndicator.startAnimating()
         
-        loadBeerItems() { (completion) in
+        loadBeerItems() { [self] (completion) in
             if completion == nil {
                 print("Error loading characters")
             }
             else{
                 self.beerList = completion!
+                self.viewBeerList = self.beerList
                 self.beerTableView.reloadData()
                 
                 self.activityIndicator.stopAnimating()
@@ -38,6 +42,7 @@ class TableViewController: UIViewController {
                 
         }
         
+        searchBar.delegate = self
         beerTableView.delegate = self
         beerTableView.dataSource = self
     }
@@ -59,7 +64,7 @@ class TableViewController: UIViewController {
         if segue.identifier == "detailSegue"{
             if let indexPath = beerTableView.indexPathForSelectedRow{
                 let destVC = segue.destination as! BeerInfoViewController
-                destVC.info = beerList[indexPath.row]
+                destVC.info = viewBeerList[indexPath.row]
             }
         }
         if segue.identifier == "mapSegue" {
@@ -67,24 +72,59 @@ class TableViewController: UIViewController {
             destVC.beerList = beerList
         }
     }
+    
+    func getItemsByText(text: String, src: Array<QueryDocumentSnapshot>) {
+        viewBeerList.removeAll()
+        for item in src {
+            if (item.data()["title"] as! String).lowercased().contains(text.lowercased()) || (item.data()["manufacturer"] as! String).lowercased().contains(text.lowercased()) {
+                viewBeerList.append(item)
+            }
+        }
+    }
+}
+
+extension TableViewController : UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if !searchText.isEmpty && searchText.count >= 3 {
+            getItemsByText(text: searchText, src: beerList)
+            beerTableView.reloadData()
+        }
+        else if (searchText.isEmpty) {
+            viewBeerList = beerList
+            beerTableView.reloadData()
+        }
+    }
 }
 
 extension TableViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return beerList.count
+        return viewBeerList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! CustomTableViewCell
+        cell.beerImageView.image = UIImage(systemName: "photo.on.rectangle")
         //if indexPath.row % 2 == 1 {
-        //    cell.backgroundColor = UIColor.systemGray6
+        //    cell.backgroundColor = UIColor.opaqueSeparator
         //}
-        cell.titleLabel.text = beerList[indexPath.row].data()["title"] as? String
-        cell.sortLabel.text = "sort: " + (beerList[indexPath.row].data()["sort"] as! String)
-        cell.manufacturerLabel.text = beerList[indexPath.row].data()["manufacturer"] as? String
-        cell.degreeLabel.text = String(format: "degree: %.1f", beerList[indexPath.row].data()["degree"] as! Double)
-        let url = beerList[indexPath.row].data()["avatar"] as? String
-        Utils().downloadImage(from: URL(string: url!)!, image: cell.beerImageView)
+        cell.titleLabel.text = viewBeerList[indexPath.row].data()["title"] as? String
+        cell.sortLabel.text = "sort: " + (viewBeerList[indexPath.row].data()["sort"] as! String)
+        cell.manufacturerLabel.text = viewBeerList[indexPath.row].data()["manufacturer"] as? String
+        cell.degreeLabel.text = String(format: "degree: %.1f", viewBeerList[indexPath.row].data()["degree"] as! Double)
+        let url = viewBeerList[indexPath.row].data()["avatar"] as? String
+        
+        if beerImages[url!] == nil {
+            Utils().downloadImage(from: URL(string: url!)!, image: cell.beerImageView) {
+                (completion) in
+                    if completion == nil {}
+                    else {
+                        self.beerImages[url!] = completion
+                    }
+            }
+        }
+        else {
+            cell.beerImageView.image = beerImages[url!]
+        }
         return cell
     }
     

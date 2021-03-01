@@ -35,7 +35,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         xTextField.text = String(format: "%.4f", (beerProduct!.data()["latitude"] as? Double)!)
         yTextField.text = String(format: "%.4f", (beerProduct!.data()["longitude"] as? Double)!)
         let url = beerProduct!.data()["avatar"] as? String
-        Utils().downloadImage(from: URL(string: url!)!, image: beerAvatar)
+        Utils().downloadImage(from: URL(string: url!)!, image: beerAvatar, completion: {_ in })
     }
     
     @IBAction func editTouched(_ sender: Any) {

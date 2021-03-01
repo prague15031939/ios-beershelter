@@ -237,7 +237,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E8b-yn-TVE">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="48" width="375" height="619"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableCell" rowHeight="161" id="uMI-68-yxV" customClass="CustomTableViewCell" customModule="BeerShelter" customModuleProvider="target">
@@ -287,8 +287,9 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0J6-V3-W2k">
-                                                    <rect key="frame" x="9" y="8" width="146" height="146"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0J6-V3-W2k">
+                                                    <rect key="frame" x="9" y="8.5" width="146" height="145.5"/>
+                                                    <color key="tintColor" systemColor="opaqueSeparatorColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="146" id="Zf5-PD-7gc"/>
                                                         <constraint firstAttribute="height" constant="146" id="fHF-cc-yEj"/>
@@ -334,13 +335,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="b0O-fq-DHF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="RsZ-IQ-Hon"/>
+                                    <constraint firstAttribute="width" constant="375" id="XI9-Wf-qUt"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HuR-yt-7eN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="E8b-yn-TVE" firstAttribute="top" secondItem="b0O-fq-DHF" secondAttribute="bottom" constant="4" id="0Wf-ou-kYD"/>
+                            <constraint firstItem="b0O-fq-DHF" firstAttribute="trailing" secondItem="HuR-yt-7eN" secondAttribute="trailing" id="3A3-Zw-fLT"/>
                             <constraint firstItem="E8b-yn-TVE" firstAttribute="bottom" secondItem="HuR-yt-7eN" secondAttribute="bottom" id="6eV-DI-Rie"/>
+                            <constraint firstItem="b0O-fq-DHF" firstAttribute="leading" secondItem="HuR-yt-7eN" secondAttribute="leading" id="HRz-1R-ewu"/>
                             <constraint firstItem="E8b-yn-TVE" firstAttribute="leading" secondItem="HuR-yt-7eN" secondAttribute="leading" id="Y9J-Ry-J3l"/>
-                            <constraint firstItem="E8b-yn-TVE" firstAttribute="top" secondItem="HuR-yt-7eN" secondAttribute="top" id="ZSe-ot-61B"/>
+                            <constraint firstItem="E8b-yn-TVE" firstAttribute="top" secondItem="HuR-yt-7eN" secondAttribute="top" constant="48" id="ZSe-ot-61B"/>
+                            <constraint firstItem="b0O-fq-DHF" firstAttribute="top" secondItem="HuR-yt-7eN" secondAttribute="top" id="ZZF-m9-pcK"/>
                             <constraint firstItem="E8b-yn-TVE" firstAttribute="trailing" secondItem="HuR-yt-7eN" secondAttribute="trailing" id="xoG-Bf-CNs"/>
                         </constraints>
                     </view>
@@ -354,6 +367,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="MtB-Z4-c2a" id="z3J-5S-TMP"/>
                         <outlet property="beerTableView" destination="E8b-yn-TVE" id="gRG-UD-EWN"/>
+                        <outlet property="searchBar" destination="b0O-fq-DHF" id="HuF-Vi-ujr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGG-M4-a4S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -702,6 +716,7 @@
         <image name="login-background" width="1200" height="1200"/>
         <image name="map" catalog="system" width="128" height="110"/>
         <image name="photo" catalog="system" width="128" height="93"/>
+        <image name="photo.on.rectangle" catalog="system" width="128" height="96"/>
         <image name="square.and.arrow.down.on.square" catalog="system" width="122" height="128"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <namedColor name="AccentColor">
@@ -709,6 +724,9 @@
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

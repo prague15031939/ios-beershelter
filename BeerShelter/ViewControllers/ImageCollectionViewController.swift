@@ -61,7 +61,7 @@ extension ImageCollectionViewController : UICollectionViewDataSource, UICollecti
         
         if indexPath.section == 0 {
             let url = photos![indexPath.row]
-            Utils().downloadImage(from: URL(string: url)!, image: cell.beerImageView)
+            Utils().downloadImage(from: URL(string: url)!, image: cell.beerImageView, completion: { _ in })
         }
         else if indexPath.section == 1 {
             let url = URL(string: videos![indexPath.row])!
