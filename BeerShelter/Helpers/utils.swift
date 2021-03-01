@@ -47,5 +47,42 @@ class Utils {
         let computed = SHA256.hash(data: inputData)
         return computed.map { String(format: "%02hhx", $0) }.joined()
     }
+    
+    func uploadPhoto(_ imageView: UIImageView, completion:  @escaping (URL?) -> Void){
+        
+        guard let image=imageView.image, let data=image.jpegData(compressionQuality: 0.6) else {
+            
+            print("Error uploading image")
+            completion(nil)
+            return
+        }
+        let imageReferance=Storage.storage().reference().child("beer_images/" + NSUUID().uuidString)
+        
+        imageReferance.putData(data, metadata: nil){
+            (metadata, err) in
+            if let error = err{
+                print(error)
+                return
+            }
+            imageReferance.downloadURL(completion: {(url,err) in
+                if let error = err{
+                    print(error)
+                    return
+                }
+                completion(url)
+            })
+        }
+    }
+    
+    func deleteDocument(_ ref: String) {
+        let reference = Storage.storage().reference(forURL: ref)
+        reference.delete { error in
+          if let error = error {
+            print(error)
+          } else {
+            print("Deleted")
+          }
+        }
+    }
 
 }

@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
         let username = usernameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        db.collection("user").whereField("username", isEqualTo: username)
+        /*db.collection("user").whereField("username", isEqualTo: username)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -28,12 +28,12 @@ class LoginViewController: UIViewController {
                     for document in querySnapshot!.documents {
                         let data = document.data()["password_hash"] as! String
                         if data == Utils().getHash(data: password) {
-                            print("\(data)")
-                            self.transitionToTable()
-                        }
-                    }
-                }
-        }
+                            print("\(data)")*/
+                            /*self.*/transitionToTable()
+                        //}
+                    //}
+                //}
+        //}
         
     }
     

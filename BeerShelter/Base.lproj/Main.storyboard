@@ -205,7 +205,7 @@
         <!--Map View Controller-->
         <scene sceneID="99f-xF-sY6">
             <objects>
-                <viewController id="Toe-t8-opp" customClass="MapViewController" customModule="BeerShelter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapVC" id="Toe-t8-opp" customClass="MapViewController" customModule="BeerShelter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uen-i9-5qv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -381,7 +381,7 @@
         <!--Beer Info View Controller-->
         <scene sceneID="30f-pY-VPf">
             <objects>
-                <viewController id="Yqz-ae-6D6" customClass="BeerInfoViewController" customModule="BeerShelter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailedVC" id="Yqz-ae-6D6" customClass="BeerInfoViewController" customModule="BeerShelter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" ambiguous="YES" id="NH6-mC-Fbg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -544,29 +544,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.doc" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="TK0-G7-UbA">
-                                <rect key="frame" x="16" y="16" width="128" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="TwJ-WE-6e3"/>
-                                    <constraint firstAttribute="width" constant="128" id="U97-4h-00m"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TK0-G7-UbA">
+                                <rect key="frame" x="32" y="95" width="310" height="310"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-8I-58q">
+                                <rect key="frame" x="91" y="38" width="191" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="manufacturer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LQG-5w-KTS">
+                                <rect key="frame" x="32" y="424" width="191" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="x" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JkR-2P-wYI">
+                                <rect key="frame" x="245" y="424" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="y" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l14-gN-64B">
+                                <rect key="frame" x="245" y="466" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </textField>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ev1-EG-y7m">
+                                <rect key="frame" x="0.0" y="220" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2K-fW-mvD">
+                                <rect key="frame" x="236" y="592" width="115" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="edit">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="editTouched:" destination="R9e-DO-Sw2" eventType="touchUpInside" id="jWu-cf-0fD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mzk-su-9AO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="TK0-G7-UbA" firstAttribute="leading" secondItem="mzk-su-9AO" secondAttribute="leading" constant="16" id="476-T3-Vvr"/>
-                            <constraint firstItem="TK0-G7-UbA" firstAttribute="top" secondItem="mzk-su-9AO" secondAttribute="top" constant="16" id="mn4-FJ-ljZ"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7GT-Fd-Cah"/>
                     <connections>
+                        <outlet property="activityindicator" destination="ev1-EG-y7m" id="LEG-30-I1N"/>
                         <outlet property="beerAvatar" destination="TK0-G7-UbA" id="hml-UI-rCv"/>
+                        <outlet property="editButton" destination="Z2K-fW-mvD" id="9Lx-IW-kn6"/>
+                        <outlet property="manufacturerTextField" destination="LQG-5w-KTS" id="DO7-Zl-iKo"/>
+                        <outlet property="titleTextField" destination="2Ra-8I-58q" id="Xju-YG-5IJ"/>
+                        <outlet property="xTextField" destination="JkR-2P-wYI" id="he2-IR-je2"/>
+                        <outlet property="yTextField" destination="l14-gN-64B" id="KcN-8H-i1r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I2j-u3-dmw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3624.8000000000002" y="860.41979010494754"/>
+            <point key="canvasLocation" x="3624.8000000000002" y="859.52023988005999"/>
         </scene>
         <!--Image Collection View Controller-->
         <scene sceneID="roL-1f-Wdh">
@@ -656,7 +699,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="lock.doc" catalog="system" width="115" height="128"/>
         <image name="login-background" width="1200" height="1200"/>
         <image name="map" catalog="system" width="128" height="110"/>
         <image name="photo" catalog="system" width="128" height="93"/>
