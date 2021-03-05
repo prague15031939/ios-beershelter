@@ -13,6 +13,11 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var beerAvatar: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var manufacturerTextField: UITextField!
+    @IBOutlet weak var sortTextField: UITextField!
+    @IBOutlet weak var degreeTextField: UITextField!
+    @IBOutlet weak var extraFlavorTextField: UITextField!
+    @IBOutlet weak var colorTextField: UITextField!
+    @IBOutlet weak var hopTypeTextField: UITextField!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var xTextField: UITextField!
     @IBOutlet weak var yTextField: UITextField!
@@ -32,6 +37,11 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         titleTextField.text = beerProduct!.data()["title"] as? String
         manufacturerTextField.text = beerProduct!.data()["manufacturer"] as? String
+        sortTextField.text = beerProduct!.data()["sort"] as? String
+        degreeTextField.text = String(format: "%.1f", beerProduct!.data()["degree"] as! Double)
+        extraFlavorTextField.text = beerProduct!.data()["extra_flavor"] as? String
+        colorTextField.text = beerProduct!.data()["color"] as? String
+        hopTypeTextField.text = beerProduct!.data()["hop_type"] as? String
         xTextField.text = String(format: "%.4f", (beerProduct!.data()["latitude"] as? Double)!)
         yTextField.text = String(format: "%.4f", (beerProduct!.data()["longitude"] as? Double)!)
         let url = beerProduct!.data()["avatar"] as? String
@@ -46,11 +56,16 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         if error == nil {
             let title = titleTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let manufacturer = manufacturerTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let sort = sortTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let degree = Double(degreeTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+            let color = colorTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let extraFlavor = extraFlavorTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let hopType = hopTypeTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let x = Double(xTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines))
             let y = Double(yTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines))
 
             let avatar = beerProduct!.data()["avatar"] as! String
-            updateCharacter(title, manufacturer: manufacturer, avatar: avatar, x: x!, y: y!, documentID: beerProduct!.documentID)
+            updateCharacter(title, manufacturer: manufacturer, sort: sort, color: color, extraFlavor: extraFlavor, hopType: hopType, degree: degree!, avatar: avatar, x: x!, y: y!, documentID: beerProduct!.documentID)
         }
         else{
             activityindicator.alpha=0
@@ -58,7 +73,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
-    func updateCharacter(_ title: String, manufacturer: String, avatar: String, x: Double, y: Double, documentID: String){
+    func updateCharacter(_ title: String, manufacturer: String, sort: String, color: String, extraFlavor: String, hopType: String, degree: Double, avatar: String, x: Double, y: Double, documentID: String){
         
         Utils().uploadPhoto(beerAvatar) {(completion) in
              if completion == nil {
@@ -72,7 +87,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 let db = Firestore.firestore()
                 let ref = db.collection("beer_product").document(documentID)
                 ref.updateData([
-                    "title": title, "manufacturer": manufacturer, "latitude": x,"longitude": y, "avatar": newAvatar
+                    "title": title, "manufacturer": manufacturer, "latitude": x,"longitude": y, "avatar": newAvatar, "sort": sort, "degree": degree, "color": color, "hop_type": hopType, "extra_flavor": extraFlavor
                 ]) { [self] (error) in
                     if error != nil {
                         self.activityindicator.alpha=0
@@ -103,19 +118,26 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     
     func validateFields() -> String? {
-        if titleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" || manufacturerTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" /*||
-            ageTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" ||
-            seasonTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" ||
+        if titleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" || manufacturerTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" ||
+            sortTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" ||
+            colorTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" ||
+            degreeTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" ||
+            extraFlavorTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" ||
+            hopTypeTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" ||
             xTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" ||
-            yTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""*/
+            yTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""
             {
                 return NSLocalizedString("SignUpViewController_notFullError", comment: "")
             }
         
         let x = Double((xTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!)
         let y = Double((yTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!)
+        let degree = Double((degreeTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!)
         if  (x == nil || x! < -89.3 || x! > 89.3) ||  (y == nil || y! < -89.3 || y! > 89.3){
             return NSLocalizedString("CharacterEditViewController_coordsNotDouble", comment: "")
+        }
+        if degree == nil || degree! < 0.5 || degree! > 99.9 {
+            return NSLocalizedString("CharacterEditViewController_degreeNotDouble", comment: "")
         }
             return nil
     }

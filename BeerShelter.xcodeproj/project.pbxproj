@@ -21,6 +21,7 @@
 		AF58F37F25E53AB60003A512 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF58F37E25E53AB60003A512 /* Assets.xcassets */; };
 		AF58F38225E53AB70003A512 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF58F38025E53AB70003A512 /* LaunchScreen.storyboard */; };
 		AF58F38E25E53E510003A512 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF58F38D25E53E510003A512 /* GoogleService-Info.plist */; };
+		AF5A8A9425F2926F001F8881 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AF5A8A9325F2926F001F8881 /* Settings.bundle */; };
 		AFCB8B0625E859F90039531C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB8B0525E859F90039531C /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		AF58F38125E53AB70003A512 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF58F38325E53AB70003A512 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF58F38D25E53E510003A512 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AF5A8A9325F2926F001F8881 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		AFCB8B0525E859F90039531C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D4090806BA030F8F03B3402A /* Pods_BeerShelter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeerShelter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -127,6 +129,7 @@
 				AF58F38025E53AB70003A512 /* LaunchScreen.storyboard */,
 				AF58F38D25E53E510003A512 /* GoogleService-Info.plist */,
 				AF58F38325E53AB70003A512 /* Info.plist */,
+				AF5A8A9325F2926F001F8881 /* Settings.bundle */,
 			);
 			path = BeerShelter;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			files = (
 				AF58F38225E53AB70003A512 /* LaunchScreen.storyboard in Resources */,
 				AF58F37F25E53AB60003A512 /* Assets.xcassets in Resources */,
+				AF5A8A9425F2926F001F8881 /* Settings.bundle in Resources */,
 				AF58F38E25E53E510003A512 /* GoogleService-Info.plist in Resources */,
 				AF58F37D25E53AB40003A512 /* Main.storyboard in Resources */,
 			);

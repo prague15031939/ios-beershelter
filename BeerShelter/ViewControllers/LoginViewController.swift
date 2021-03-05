@@ -15,30 +15,40 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logButton: UIButton!
     @IBOutlet weak var regButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBAction func logTouched(_ sender: Any) {
         let username = usernameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        /*db.collection("user").whereField("username", isEqualTo: username)
-            .getDocuments() { (querySnapshot, err) in
+        db.collection("user").whereField("username", isEqualTo: username)
+            .getDocuments() { [self] (querySnapshot, err) in
                 if let err = err {
-                    print("Error getting documents: \(err)")
+                    print(err)
                 } else {
-                    for document in querySnapshot!.documents {
-                        let data = document.data()["password_hash"] as! String
-                        if data == Utils().getHash(data: password) {
-                            print("\(data)")*/
-                            /*self.*/transitionToTable()
-                        //}
-                    //}
-                //}
-        //}
+                    if querySnapshot!.documents.count == 0 {
+                        Utils().showError("user does not exist", label: self.errorLabel)
+                    }
+                    else {
+                        for document in querySnapshot!.documents {
+                            let data = document.data()["password_hash"] as! String
+                            if data == Utils().getHash(data: password) {
+                                print("\(data)")
+                                self.transitionToTable()
+                            }
+                            else {
+                                Utils().showError("invalid password", label: self.errorLabel)
+                            }
+                        }
+                    }
+                }
+        }
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        errorLabel.alpha = 0
         regButton.backgroundColor = .clear
         regButton.layer.borderWidth = 2
         regButton.layer.borderColor = UIColor.black.cgColor

@@ -21,6 +21,27 @@ class TableViewController: UIViewController {
     var viewBeerList = Array<QueryDocumentSnapshot>()
     var beerImages : [String: UIImage] = [:]
     
+    required init?(coder: NSCoder) {
+       super.init(coder: coder)
+       NotificationCenter.default.addObserver(self, selector: #selector(self.settingsChanged), name: UserDefaults.didChangeNotification, object: nil)
+    }
+    
+    @IBAction func settingsTapped(_ sender: Any) {
+        let tableViewController = (storyboard?.instantiateViewController(identifier: "tableVC") as? TableViewController)!
+        let navViewController = storyboard?.instantiateViewController(identifier: "navVC") as? UINavigationController
+        navViewController?.pushViewController(tableViewController, animated: true)
+               view.window?.rootViewController = navViewController
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                print("Settings opened: \(success)") 
+            })
+        }
+               
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -103,6 +124,9 @@ extension TableViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! CustomTableViewCell
+        let font=UserDefaults.standard.string(forKey: "fontStyle")
+        let size=UserDefaults.standard.integer(forKey: "fontSize")
+        Utils().styleLabel(cell.titleLabel, fontName: font!, fontSize: size)
         cell.beerImageView.image = UIImage(systemName: "photo.on.rectangle")
         //if indexPath.row % 2 == 1 {
         //    cell.backgroundColor = UIColor.opaqueSeparator
@@ -128,6 +152,15 @@ extension TableViewController : UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    @objc func settingsChanged(){
+        let cells = self.beerTableView.visibleCells as! Array<CustomTableViewCell>
+
+        for cell in cells {
+            let font=UserDefaults.standard.string(forKey: "fontStyle")
+            let size=UserDefaults.standard.integer(forKey: "fontSize")
+            Utils().styleLabel(cell.titleLabel, fontName: font!, fontSize: size)
+        }
+    }
 }
 
 class CustomTableViewCell : UITableViewCell {
