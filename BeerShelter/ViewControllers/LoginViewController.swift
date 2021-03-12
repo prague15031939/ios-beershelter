@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var logButton: UIButton!
     @IBOutlet weak var regButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var loginLabel: UILabel!
+    
     
     @IBAction func logTouched(_ sender: Any) {
         let username = usernameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -27,7 +29,7 @@ class LoginViewController: UIViewController {
                     print(err)
                 } else {
                     if querySnapshot!.documents.count == 0 {
-                        Utils().showError("user does not exist", label: self.errorLabel)
+                        styleUtils.showError(NSLocalizedString("LoginVC_UserError", comment: ""), label: self.errorLabel)
                     }
                     else {
                         for document in querySnapshot!.documents {
@@ -37,7 +39,7 @@ class LoginViewController: UIViewController {
                                 self.transitionToTable()
                             }
                             else {
-                                Utils().showError("invalid password", label: self.errorLabel)
+                                styleUtils.showError(NSLocalizedString("LoginVC_UserError", comment: ""), label: self.errorLabel)
                             }
                         }
                     }
@@ -46,14 +48,15 @@ class LoginViewController: UIViewController {
         
     }
     
+    required init?(coder: NSCoder) {
+       super.init(coder: coder)
+       NotificationCenter.default.addObserver(self, selector: #selector(self.settingsChanged), name: UserDefaults.didChangeNotification, object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        errorLabel.alpha = 0
-        regButton.backgroundColor = .clear
-        regButton.layer.borderWidth = 2
-        regButton.layer.borderColor = UIColor.black.cgColor
-        regButton.layer.cornerRadius = 5
-        logButton.layer.cornerRadius = 5
+        setupElements()
+        setLocalization()
     }
 
     func transitionToTable() {
@@ -64,6 +67,42 @@ class LoginViewController: UIViewController {
         view.window?.rootViewController = navViewController
         view.window?.makeKeyAndVisible()
             
+    }
+    
+    func setupElements() {
+        errorLabel.alpha = 0
+        errorLabel.textColor = UIColor.black
+        loginLabel.textColor = UIColor.black
+        usernameTextField.layer.borderWidth = 1
+        passwordTextField.layer.borderWidth = 1
+        usernameTextField.layer.cornerRadius = 5
+        passwordTextField.layer.cornerRadius = 5
+        usernameTextField.layer.borderColor = UIColor.black.cgColor
+        passwordTextField.layer.borderColor = UIColor.black.cgColor
+        usernameTextField.backgroundColor = UIColor.white
+        passwordTextField.backgroundColor = UIColor.white
+        usernameTextField.textColor = UIColor.black
+        passwordTextField.textColor = UIColor.black
+        usernameTextField.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        regButton.backgroundColor = .clear
+        regButton.layer.borderWidth = 2
+        regButton.layer.borderColor = UIColor.black.cgColor
+        regButton.layer.cornerRadius = 5
+        regButton.setTitleColor(UIColor.black, for: .normal)
+        logButton.layer.cornerRadius = 5
+    }
+    
+    func setLocalization(){
+        loginLabel.text=NSLocalizedString("LoginVC_loginLabel", comment: "")
+        logButton.setTitle(NSLocalizedString("LoginVC_logButton", comment: ""), for: .normal)
+        regButton.setTitle(NSLocalizedString("LoginVC_regButton", comment: ""), for: .normal)
+        usernameTextField.placeholder=NSLocalizedString("LoginVC_usernameTextField", comment: "")
+        passwordTextField.placeholder=NSLocalizedString("LoginVC_passwordTextField", comment: "")
+    }
+    
+    @objc func settingsChanged(){
+       setLocalization()
     }
 
 }

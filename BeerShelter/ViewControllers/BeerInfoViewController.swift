@@ -23,20 +23,27 @@ class BeerInfoViewController: UIViewController {
     
     var info : QueryDocumentSnapshot?
     
+    required init?(coder: NSCoder) {
+       super.init(coder: coder)
+       NotificationCenter.default.addObserver(self, selector: #selector(self.settingsChanged), name: UserDefaults.didChangeNotification, object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupElements()
+        setDarkMode()
         
         if info == nil {
             print("error on segue")
         }
         else {
             titleLabel.text = info!.data()["title"] as? String
-            sortText.text = alignText(text: "sort: ", offset: 14) + (info!.data()["sort"] as! String)
-            manufacturerText.text = alignText(text: "manufacturer: ", offset: 14) + (info!.data()["manufacturer"] as! String)
-            degreeText.text = String(format: "degree: %.1f", info!.data()["degree"] as! Double)
-            hoptypeText.text = alignText(text: "hop type: ", offset: 14) + (info!.data()["hop_type"] as! String)
-            colorText.text = alignText(text: "color: ", offset: 14) + (info!.data()["color"] as! String)
-            extraFlavorText.text = alignText(text: "extra flavor: ", offset: 14) + (info!.data()["extra_flavor"] as! String)
+            sortText.text = alignText(text: NSLocalizedString("DetailVC_sortText", comment: ""), offset: 20) + (info!.data()["sort"] as! String)
+            manufacturerText.text = alignText(text: NSLocalizedString("DetailVC_manufacturerText", comment: ""), offset: 20) + (info!.data()["manufacturer"] as! String)
+            degreeText.text = String(format: NSLocalizedString("DetailVC_degreeText", comment: "")+"%.1f", info!.data()["degree"] as! Double)
+            hoptypeText.text = alignText(text: NSLocalizedString("DetailVC_hoptypeText", comment: ""), offset: 20) + (info!.data()["hop_type"] as! String)
+            colorText.text = alignText(text: NSLocalizedString("DetailVC_colorText", comment: ""), offset: 20) + (info!.data()["color"] as! String)
+            extraFlavorText.text = alignText(text: NSLocalizedString("DetailVC_extraFlavorText", comment: ""), offset: 20) + (info!.data()["extra_flavor"] as! String)
             
             let url = info!.data()["avatar"] as? String
             Utils().downloadImage(from: URL(string: url!)!, image: avatarImageView, completion: {_ in })
@@ -59,6 +66,30 @@ class BeerInfoViewController: UIViewController {
             let destVC = segue.destination as! EditViewController
             destVC.beerProduct = info
         }
+    }
+    
+    func setDarkMode(){
+        if (UserDefaults.standard.bool(forKey: "DarkMode") == false){
+            overrideUserInterfaceStyle = .light
+        }
+        else{
+            overrideUserInterfaceStyle = .dark
+        }
+    }
+    
+    @objc func settingsChanged(){
+        setupElements()
+        setDarkMode()
+    }
+    
+    func setupElements() {
+        styleUtils.styleLabel(titleLabel)
+        styleUtils.styleTextView(manufacturerText)
+        styleUtils.styleTextView(sortText)
+        styleUtils.styleTextView(degreeText)
+        styleUtils.styleTextView(extraFlavorText)
+        styleUtils.styleTextView(hoptypeText)
+        styleUtils.styleTextView(colorText)
     }
 
 }

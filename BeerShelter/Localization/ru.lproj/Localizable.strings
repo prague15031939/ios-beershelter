@@ -1,0 +1,33 @@
+"LoginVC_UserError" = "пользователь не существует";
+"LoginVC_PasswordError" = "пароль введен неверно";
+"LoginVC_loginLabel" = "Вход";
+"LoginVC_logButton" = "войти";
+"LoginVC_regButton" = "зарегистрироваться";
+"LoginVC_usernameTextField" = "никнейм";
+"LoginVC_passwordTextField" = "пароль";
+
+"RegisterVC_UserError" = "пользователь уже существует";
+"RegisterVC_invalidData" = "заполните все поля";
+"RegisterVC_registerLabel" = "Регистрация";
+"RegisterVC_regButton" = "зарегистрироваться";
+"RegisterVC_usernameTextField" = "никнейм";
+"RegisterVC_emailTextField" = "email";
+"RegisterVC_passwordTextField" = "пароль";
+
+"TableVC_sortLabel" = "сорт: ";
+"TableVC_degreeLabel" = "крепость: ";
+
+"DetailVC_sortText" = "сорт: ";
+"DetailVC_manufacturerText" = "производитель: ";
+"DetailVC_degreeText" = "крепость: ";
+"DetailVC_hoptypeText" = "тип хмеля: ";
+"DetailVC_colorText" = "цвет: ";
+"DetailVC_extraFlavorText" = "доп аромат: ";
+
+"ImageVC_photo" = "фото";
+"ImageVC_videos" = "видео";
+
+"EditVC_notFullError" = "заполните все поля";
+"EditVC_coordsNotDouble" = "координаты должны быть числом";
+"EditVC_degreeNotDouble" = "крепость должна быть числом";
+"EditVC_editButton" = "сохранить";

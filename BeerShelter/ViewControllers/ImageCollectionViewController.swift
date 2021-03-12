@@ -15,9 +15,16 @@ class ImageCollectionViewController: UIViewController {
     var photos : Array<String>?
     var videos : Array<String>?
     var itemCategories = ["photo", "video"]
+    var sectionTitles = [NSLocalizedString("ImageVC_photo", comment: ""), NSLocalizedString("ImageVC_videos", comment: "")]
+    
+    required init?(coder: NSCoder) {
+       super.init(coder: coder)
+       NotificationCenter.default.addObserver(self, selector: #selector(self.settingsChanged), name: UserDefaults.didChangeNotification, object: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setDarkMode()
 
         if photos == nil || videos == nil {
             print("error on segue")
@@ -35,6 +42,15 @@ class ImageCollectionViewController: UIViewController {
         let vc = AVPlayerViewController()
         vc.player = player
         self.present(vc, animated: true) { vc.player?.play() }
+    }
+    
+    func setDarkMode(){
+        if (UserDefaults.standard.bool(forKey: "DarkMode") == false){
+            overrideUserInterfaceStyle = .light
+        }
+        else{
+            overrideUserInterfaceStyle = .dark
+        }
     }
 
 }
@@ -88,10 +104,14 @@ extension ImageCollectionViewController : UICollectionViewDataSource, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sectionHeaderView", for: indexPath) as! SectionHeaderView
-        
-        let category = itemCategories[indexPath.section]
-        header.categoryTitle = category
+
+        header.categoryTitle = sectionTitles[indexPath.section]
+        header.categoryImageString = itemCategories[indexPath.section]
         return header
+    }
+    
+    @objc func settingsChanged(){
+        setDarkMode()
     }
     
 }
@@ -125,7 +145,12 @@ class SectionHeaderView : UICollectionReusableView {
     var categoryTitle : String! {
         didSet {
             categoryTitleLabel.text = categoryTitle
-            categoryImage.image = UIImage(systemName: categoryTitle)
+        }
+    }
+    
+    var categoryImageString: String! {
+        didSet {
+            categoryImage.image = UIImage(systemName: categoryImageString)
         }
     }
 }

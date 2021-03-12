@@ -18,11 +18,13 @@
 			<key>Values</key>
 			<array>
 				<string>AppleColorEmoji</string>
+				<string>GillSans</string>
 				<string>ArialMT</string>
 			</array>
 			<key>Titles</key>
 			<array>
 				<string>AppleColorEmoji</string>
+				<string>GillSans</string>
 				<string>ArialMT</string>
 			</array>
 			<key>Title</key>
@@ -30,7 +32,7 @@
 			<key>Key</key>
 			<string>fontStyle</string>
 			<key>DefaultValue</key>
-			<string>AppleColorEmoji</string>
+			<string>GillSans</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -43,6 +45,44 @@
 			<integer>8</integer>
 			<key>MaximumValue</key>
 			<integer>30</integer>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Font color</string>
+			<key>Key</key>
+			<string>fontColor</string>
+			<key>DefaultValue</key>
+			<string>Guiness</string>
+			<key>Values</key>
+			<array>
+				<string>IPA</string>
+				<string>ACA</string>
+				<string>Guiness</string>
+			</array>
+			<key>Titles</key>
+			<array>
+				<string>IPA</string>
+				<string>ACA</string>
+				<string>Guiness</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Dark mode</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Dark Mode</string>
+			<key>Key</key>
+			<string>DarkMode</string>
+			<key>DefaultValue</key>
+			<false/>
 		</dict>
 	</array>
 </dict>

@@ -45,8 +45,10 @@ class TableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        styleUtils.styleActivityIndicator(activityIndicator)
         activityIndicator.alpha=1
         activityIndicator.startAnimating()
+        setDarkMode()
         
         loadBeerItems() { [self] (completion) in
             if completion == nil {
@@ -102,6 +104,13 @@ class TableViewController: UIViewController {
             }
         }
     }
+    
+    func setupCellElements(cell: CustomTableViewCell) {
+        styleUtils.styleLabel(cell.titleLabel)
+        styleUtils.styleLabel(cell.sortLabel)
+        styleUtils.styleLabel(cell.manufacturerLabel)
+        styleUtils.styleLabel(cell.degreeLabel)
+    }
 }
 
 extension TableViewController : UISearchBarDelegate {
@@ -124,17 +133,16 @@ extension TableViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! CustomTableViewCell
-        let font=UserDefaults.standard.string(forKey: "fontStyle")
-        let size=UserDefaults.standard.integer(forKey: "fontSize")
-        Utils().styleLabel(cell.titleLabel, fontName: font!, fontSize: size)
+        setupCellElements(cell: cell)
+        
         cell.beerImageView.image = UIImage(systemName: "photo.on.rectangle")
         //if indexPath.row % 2 == 1 {
         //    cell.backgroundColor = UIColor.opaqueSeparator
         //}
         cell.titleLabel.text = viewBeerList[indexPath.row].data()["title"] as? String
-        cell.sortLabel.text = "sort: " + (viewBeerList[indexPath.row].data()["sort"] as! String)
+        cell.sortLabel.text = NSLocalizedString("TableVC_sortLabel", comment: "") + (viewBeerList[indexPath.row].data()["sort"] as! String)
         cell.manufacturerLabel.text = viewBeerList[indexPath.row].data()["manufacturer"] as? String
-        cell.degreeLabel.text = String(format: "degree: %.1f", viewBeerList[indexPath.row].data()["degree"] as! Double)
+        cell.degreeLabel.text = String(format: NSLocalizedString("TableVC_degreeLabel", comment: "") + "%.1f", viewBeerList[indexPath.row].data()["degree"] as! Double)
         let url = viewBeerList[indexPath.row].data()["avatar"] as? String
         
         if beerImages[url!] == nil {
@@ -152,13 +160,25 @@ extension TableViewController : UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func setDarkMode(){
+        if (UserDefaults.standard.bool(forKey: "DarkMode") == false){
+            overrideUserInterfaceStyle = .light
+        }
+        else{
+            overrideUserInterfaceStyle = .dark
+        }
+    }
+    
     @objc func settingsChanged(){
+        setDarkMode()
+        styleUtils.styleActivityIndicator(activityIndicator)
         let cells = self.beerTableView.visibleCells as! Array<CustomTableViewCell>
 
         for cell in cells {
-            let font=UserDefaults.standard.string(forKey: "fontStyle")
-            let size=UserDefaults.standard.integer(forKey: "fontSize")
-            Utils().styleLabel(cell.titleLabel, fontName: font!, fontSize: size)
+            styleUtils.styleLabel(cell.titleLabel)
+            styleUtils.styleLabel(cell.sortLabel)
+            styleUtils.styleLabel(cell.manufacturerLabel)
+            styleUtils.styleLabel(cell.degreeLabel)
         }
     }
 }

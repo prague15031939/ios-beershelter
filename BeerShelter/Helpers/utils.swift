@@ -84,15 +84,5 @@ class Utils {
           }
         }
     }
-    
-    func showError(_ msg: String, label: UILabel) {
-        label.alpha = 1
-        label.text = msg
-    }
-    
-    func styleLabel(_ label: UILabel,/*, colorName: String, */fontName: String, fontSize: Int) {
-        //label.textColor = UIColor(named: colorName)
-        label.font = UIFont(name: fontName, size: CGFloat(fontSize))
-    }
 
 }

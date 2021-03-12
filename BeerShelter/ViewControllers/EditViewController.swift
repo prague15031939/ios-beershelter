@@ -24,11 +24,20 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var activityindicator: UIActivityIndicatorView!
     var imagePicker = UIImagePickerController()
     
+    @IBOutlet weak var errorLabel: UILabel!
+    
     var beerProduct : QueryDocumentSnapshot?
+    
+    required init?(coder: NSCoder) {
+       super.init(coder: coder)
+       NotificationCenter.default.addObserver(self, selector: #selector(self.settingsChanged), name: UserDefaults.didChangeNotification, object: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        editButton.layer.cornerRadius = 5
+        errorLabel.alpha=0
+        setDarkMode()
+        setUpElements()
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         beerAvatar.isUserInteractionEnabled = true
@@ -46,6 +55,11 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         yTextField.text = String(format: "%.4f", (beerProduct!.data()["longitude"] as? Double)!)
         let url = beerProduct!.data()["avatar"] as? String
         Utils().downloadImage(from: URL(string: url!)!, image: beerAvatar, completion: {_ in })
+    }
+    
+    @objc func settingsChanged(){
+        setDarkMode()
+        setUpElements()
     }
     
     @IBAction func editTouched(_ sender: Any) {
@@ -68,6 +82,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             updateCharacter(title, manufacturer: manufacturer, sort: sort, color: color, extraFlavor: extraFlavor, hopType: hopType, degree: degree!, avatar: avatar, x: x!, y: y!, documentID: beerProduct!.documentID)
         }
         else{
+            styleUtils.showError(error!, label: self.errorLabel)
             activityindicator.alpha=0
             activityindicator.stopAnimating()
         }
@@ -109,6 +124,15 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
+    func setDarkMode(){
+        if (UserDefaults.standard.bool(forKey: "DarkMode") == false){
+            overrideUserInterfaceStyle = .light
+        }
+        else{
+            overrideUserInterfaceStyle = .dark
+        }
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             self.dismiss(animated: true, completion: { () -> Void in
                 if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -127,17 +151,17 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             xTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)=="" ||
             yTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""
             {
-                return NSLocalizedString("SignUpViewController_notFullError", comment: "")
+                return NSLocalizedString("EditVC_notFullError", comment: "")
             }
         
         let x = Double((xTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!)
         let y = Double((yTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!)
         let degree = Double((degreeTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!)
         if  (x == nil || x! < -89.3 || x! > 89.3) ||  (y == nil || y! < -89.3 || y! > 89.3){
-            return NSLocalizedString("CharacterEditViewController_coordsNotDouble", comment: "")
+            return NSLocalizedString("EditVC_coordsNotDouble", comment: "")
         }
         if degree == nil || degree! < 0.5 || degree! > 99.9 {
-            return NSLocalizedString("CharacterEditViewController_degreeNotDouble", comment: "")
+            return NSLocalizedString("EditVC_degreeNotDouble", comment: "")
         }
             return nil
     }
@@ -150,6 +174,12 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         view.window?.rootViewController = navViewController
         view.window?.makeKeyAndVisible()
             
+    }
+    
+    func setUpElements(){
+        styleUtils.styleActivityIndicator(activityindicator)
+        editButton.layer.cornerRadius = 5
+        editButton.setTitle(NSLocalizedString("EditVC_editButton", comment: ""), for: .normal)
     }
 
 }
