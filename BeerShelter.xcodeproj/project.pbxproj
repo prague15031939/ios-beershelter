@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0D17A76B324744634752CA2D /* Pods_BeerShelter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4090806BA030F8F03B3402A /* Pods_BeerShelter.framework */; };
+		AF50C29925F7A9B10040376D /* styleUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50C29825F7A9B10040376D /* styleUtils.swift */; };
+		AF50C2A325F814220040376D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF50C2A525F814220040376D /* Localizable.strings */; };
+		AF52309125E68F89004AF40A /* BeerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52309025E68F89004AF40A /* BeerInfoViewController.swift */; };
+		AF52309525E691EA004AF40A /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52309425E691EA004AF40A /* utils.swift */; };
+		AF52309825E69440004AF40A /* ImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52309725E69440004AF40A /* ImageCollectionViewController.swift */; };
+		AF56015425E56C4E00026FF6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF56015325E56C4E00026FF6 /* TableViewController.swift */; };
+		AF5759B225E7DE3500454448 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5759B125E7DE3500454448 /* MapViewController.swift */; };
+		AF5759B525E7E7EF00454448 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5759B425E7E7EF00454448 /* EditViewController.swift */; };
 		AF58F37625E53AB40003A512 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58F37525E53AB40003A512 /* AppDelegate.swift */; };
 		AF58F37825E53AB40003A512 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58F37725E53AB40003A512 /* SceneDelegate.swift */; };
 		AF58F37A25E53AB40003A512 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58F37925E53AB40003A512 /* LoginViewController.swift */; };
@@ -15,11 +23,24 @@
 		AF58F37F25E53AB60003A512 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF58F37E25E53AB60003A512 /* Assets.xcassets */; };
 		AF58F38225E53AB70003A512 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF58F38025E53AB70003A512 /* LaunchScreen.storyboard */; };
 		AF58F38E25E53E510003A512 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF58F38D25E53E510003A512 /* GoogleService-Info.plist */; };
+		AF5A8A9425F2926F001F8881 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AF5A8A9325F2926F001F8881 /* Settings.bundle */; };
+		AFCB8B0625E859F90039531C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB8B0525E859F90039531C /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7B07ACCA2EC6022F5B46618A /* Pods-BeerShelter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerShelter.release.xcconfig"; path = "Target Support Files/Pods-BeerShelter/Pods-BeerShelter.release.xcconfig"; sourceTree = "<group>"; };
 		A6E991B785D79D4D08DC1639 /* Pods-BeerShelter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerShelter.debug.xcconfig"; path = "Target Support Files/Pods-BeerShelter/Pods-BeerShelter.debug.xcconfig"; sourceTree = "<group>"; };
+		AF50C29825F7A9B10040376D /* styleUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = styleUtils.swift; sourceTree = "<group>"; };
+		AF50C29B25F813980040376D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		AF50C29C25F813980040376D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		AF50C2A425F814220040376D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AF50C2A725F814270040376D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AF52309025E68F89004AF40A /* BeerInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerInfoViewController.swift; sourceTree = "<group>"; };
+		AF52309425E691EA004AF40A /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
+		AF52309725E69440004AF40A /* ImageCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewController.swift; sourceTree = "<group>"; };
+		AF56015325E56C4E00026FF6 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		AF5759B125E7DE3500454448 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		AF5759B425E7E7EF00454448 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		AF58F37225E53AB40003A512 /* BeerShelter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeerShelter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF58F37525E53AB40003A512 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF58F37725E53AB40003A512 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,6 +50,8 @@
 		AF58F38125E53AB70003A512 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF58F38325E53AB70003A512 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF58F38D25E53E510003A512 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AF5A8A9325F2926F001F8881 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		AFCB8B0525E859F90039531C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D4090806BA030F8F03B3402A /* Pods_BeerShelter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeerShelter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -61,10 +84,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		AF50C29E25F813AE0040376D /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				AF50C2A525F814220040376D /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		AF52309325E691C4004AF40A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AF52309425E691EA004AF40A /* utils.swift */,
+				AF50C29825F7A9B10040376D /* styleUtils.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		AF56012325E54C6700026FF6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				AF58F37925E53AB40003A512 /* LoginViewController.swift */,
+				AF56015325E56C4E00026FF6 /* TableViewController.swift */,
+				AF52309025E68F89004AF40A /* BeerInfoViewController.swift */,
+				AF52309725E69440004AF40A /* ImageCollectionViewController.swift */,
+				AF5759B125E7DE3500454448 /* MapViewController.swift */,
+				AF5759B425E7E7EF00454448 /* EditViewController.swift */,
+				AFCB8B0525E859F90039531C /* RegisterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -90,14 +136,17 @@
 		AF58F37425E53AB40003A512 /* BeerShelter */ = {
 			isa = PBXGroup;
 			children = (
+				AF50C29E25F813AE0040376D /* Localization */,
 				AF58F37525E53AB40003A512 /* AppDelegate.swift */,
 				AF58F37725E53AB40003A512 /* SceneDelegate.swift */,
+				AF52309325E691C4004AF40A /* Helpers */,
 				AF56012325E54C6700026FF6 /* ViewControllers */,
 				AF58F37B25E53AB40003A512 /* Main.storyboard */,
 				AF58F37E25E53AB60003A512 /* Assets.xcassets */,
 				AF58F38025E53AB70003A512 /* LaunchScreen.storyboard */,
 				AF58F38D25E53E510003A512 /* GoogleService-Info.plist */,
 				AF58F38325E53AB70003A512 /* Info.plist */,
+				AF5A8A9325F2926F001F8881 /* Settings.bundle */,
 			);
 			path = BeerShelter;
 			sourceTree = "<group>";
@@ -114,6 +163,7 @@
 				AF58F36F25E53AB40003A512 /* Frameworks */,
 				AF58F37025E53AB40003A512 /* Resources */,
 				FDE106D6DD43FE6DF5B2D32D /* [CP] Embed Pods Frameworks */,
+				61FFF8068AA4A9A72E970107 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -145,6 +195,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = AF58F36925E53AB40003A512;
 			productRefGroup = AF58F37325E53AB40003A512 /* Products */;
@@ -162,7 +213,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF58F38225E53AB70003A512 /* LaunchScreen.storyboard in Resources */,
+				AF50C2A325F814220040376D /* Localizable.strings in Resources */,
 				AF58F37F25E53AB60003A512 /* Assets.xcassets in Resources */,
+				AF5A8A9425F2926F001F8881 /* Settings.bundle in Resources */,
 				AF58F38E25E53E510003A512 /* GoogleService-Info.plist in Resources */,
 				AF58F37D25E53AB40003A512 /* Main.storyboard in Resources */,
 			);
@@ -193,6 +246,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		61FFF8068AA4A9A72E970107 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeerShelter/Pods-BeerShelter-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeerShelter/Pods-BeerShelter-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeerShelter/Pods-BeerShelter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FDE106D6DD43FE6DF5B2D32D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -217,19 +287,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF52309825E69440004AF40A /* ImageCollectionViewController.swift in Sources */,
+				AFCB8B0625E859F90039531C /* RegisterViewController.swift in Sources */,
+				AF50C29925F7A9B10040376D /* styleUtils.swift in Sources */,
+				AF52309125E68F89004AF40A /* BeerInfoViewController.swift in Sources */,
 				AF58F37A25E53AB40003A512 /* LoginViewController.swift in Sources */,
 				AF58F37625E53AB40003A512 /* AppDelegate.swift in Sources */,
 				AF58F37825E53AB40003A512 /* SceneDelegate.swift in Sources */,
+				AF52309525E691EA004AF40A /* utils.swift in Sources */,
+				AF56015425E56C4E00026FF6 /* TableViewController.swift in Sources */,
+				AF5759B225E7DE3500454448 /* MapViewController.swift in Sources */,
+				AF5759B525E7E7EF00454448 /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		AF50C2A525F814220040376D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF50C2A425F814220040376D /* en */,
+				AF50C2A725F814270040376D /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		AF58F37B25E53AB40003A512 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				AF58F37C25E53AB40003A512 /* Base */,
+				AF50C29B25F813980040376D /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -238,6 +326,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				AF58F38125E53AB70003A512 /* Base */,
+				AF50C29C25F813980040376D /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -249,6 +338,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -310,6 +400,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

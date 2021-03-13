@@ -1,0 +1,114 @@
+
+/* Class = "UITextView"; text = "manufacturer"; ObjectID = "04T-nb-Tl4"; */
+"04T-nb-Tl4.text" = "manufacturer";
+
+/* Class = "UITextField"; placeholder = "title"; ObjectID = "2Ra-8I-58q"; */
+"2Ra-8I-58q.placeholder" = "title";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "6Kj-AX-bht"; */
+"6Kj-AX-bht.title" = "Item";
+
+/* Class = "UILabel"; text = "Login"; ObjectID = "6fI-4b-Ih9"; */
+"6fI-4b-Ih9.text" = "Login";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "7Hb-lc-w4X"; */
+"7Hb-lc-w4X.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "extra flavor"; ObjectID = "AQi-m8-LEB"; */
+"AQi-m8-LEB.placeholder" = "extra flavor";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Dml-FB-EXc"; */
+"Dml-FB-EXc.text" = "Label";
+
+/* Class = "UILabel"; text = "Register"; ObjectID = "GDV-uY-JSq"; */
+"GDV-uY-JSq.text" = "Register";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Hyy-nU-wwa"; */
+"Hyy-nU-wwa.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "x"; ObjectID = "JkR-2P-wYI"; */
+"JkR-2P-wYI.placeholder" = "x";
+
+/* Class = "UITextField"; placeholder = "manufacturer"; ObjectID = "LQG-5w-KTS"; */
+"LQG-5w-KTS.placeholder" = "manufacturer";
+
+/* Class = "UILabel"; text = "label"; ObjectID = "Mik-YS-ffN"; */
+"Mik-YS-ffN.text" = "label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "NcB-TT-bLO"; */
+"NcB-TT-bLO.text" = "Label";
+
+/* Class = "UILabel"; text = "Photos"; ObjectID = "O4B-Vw-A9J"; */
+"O4B-Vw-A9J.text" = "Photos";
+
+/* Class = "UITextView"; text = "extra_flavor"; ObjectID = "Q27-LV-CYw"; */
+"Q27-LV-CYw.text" = "extra_flavor";
+
+/* Class = "UITextField"; placeholder = "color"; ObjectID = "QNj-lz-L7a"; */
+"QNj-lz-L7a.placeholder" = "color";
+
+/* Class = "UITextField"; placeholder = "username"; ObjectID = "R0k-fg-0K0"; */
+"R0k-fg-0K0.placeholder" = "username";
+
+/* Class = "UITextView"; text = "hop_type"; ObjectID = "VHX-rs-ZyT"; */
+"VHX-rs-ZyT.text" = "hop_type";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "XKn-ET-4qu"; */
+"XKn-ET-4qu.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Xe6-Cl-Qlq"; */
+"Xe6-Cl-Qlq.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "edit"; ObjectID = "Z2K-fW-mvD"; */
+"Z2K-fW-mvD.normalTitle" = "edit";
+
+/* Class = "UITextField"; placeholder = "degree"; ObjectID = "bdc-nF-qKU"; */
+"bdc-nF-qKU.placeholder" = "degree";
+
+/* Class = "UITextField"; placeholder = "email"; ObjectID = "dw9-Qy-R8Z"; */
+"dw9-Qy-R8Z.placeholder" = "email";
+
+/* Class = "UITextField"; placeholder = "password"; ObjectID = "hks-48-XGJ"; */
+"hks-48-XGJ.placeholder" = "password";
+
+/* Class = "UITextField"; placeholder = "username"; ObjectID = "huZ-xQ-MbR"; */
+"huZ-xQ-MbR.placeholder" = "username";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "hzI-al-csg"; */
+"hzI-al-csg.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "password"; ObjectID = "ihv-dI-7pH"; */
+"ihv-dI-7pH.placeholder" = "password";
+
+/* Class = "UITextField"; placeholder = "sort"; ObjectID = "jmA-t3-O6v"; */
+"jmA-t3-O6v.placeholder" = "sort";
+
+/* Class = "UITextField"; placeholder = "y"; ObjectID = "l14-gN-64B"; */
+"l14-gN-64B.placeholder" = "y";
+
+/* Class = "UITextView"; text = "sort"; ObjectID = "laa-mM-4LA"; */
+"laa-mM-4LA.text" = "sort";
+
+/* Class = "UITextView"; text = "degree"; ObjectID = "ln8-G1-SbR"; */
+"ln8-G1-SbR.text" = "degree";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "mVy-gP-jmd"; */
+"mVy-gP-jmd.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "sign up"; ObjectID = "oIg-Wr-pHM"; */
+"oIg-Wr-pHM.normalTitle" = "sign up";
+
+/* Class = "UIButton"; normalTitle = "sign up"; ObjectID = "qZ0-Jq-LbY"; */
+"qZ0-Jq-LbY.normalTitle" = "sign up";
+
+/* Class = "UIButton"; normalTitle = "sign in"; ObjectID = "rjm-1r-KnI"; */
+"rjm-1r-KnI.normalTitle" = "sign in";
+
+/* Class = "UITextField"; placeholder = "hop type"; ObjectID = "sbr-01-GcC"; */
+"sbr-01-GcC.placeholder" = "hop type";
+
+/* Class = "UITextView"; text = "color"; ObjectID = "tUt-Rz-yhj"; */
+"tUt-Rz-yhj.text" = "color";
+
+/* Class = "UIBarButtonItem"; title = "map"; ObjectID = "yT3-cN-HKz"; */
+"yT3-cN-HKz.title" = "map";

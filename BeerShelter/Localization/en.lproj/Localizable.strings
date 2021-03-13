@@ -1,0 +1,34 @@
+"LoginVC_UserError" = "user does not exist";
+"LoginVC_PasswordError" = "invalid password";
+"LoginVC_loginLabel" = "Login";
+"LoginVC_logButton" = "log in";
+"LoginVC_regButton" = "sign up";
+"LoginVC_usernameTextField" = "username";
+"LoginVC_passwordTextField" = "password";
+
+
+"RegisterVC_UserError" = "user already exists";
+"RegisterVC_invalidData" = "invalid data";
+"RegisterVC_registerLabel" = "Register";
+"RegisterVC_regButton" = "sing up";
+"RegisterVC_usernameTextField" = "username";
+"RegisterVC_emailTextField" = "email";
+"RegisterVC_passwordTextField" = "password";
+
+"TableVC_sortLabel" = "sort: ";
+"TableVC_degreeLabel" = "degree: ";
+
+"DetailVC_sortText" = "sort: ";
+"DetailVC_manufacturerText" = "manufacturer: ";
+"DetailVC_degreeText" = "degree: ";
+"DetailVC_hoptypeText" = "hop type: ";
+"DetailVC_colorText" = "color: ";
+"DetailVC_extraFlavorText" = "extra flavour: ";
+
+"ImageVC_photo" = "photos";
+"ImageVC_videos" = "videos";
+
+"EditVC_notFullError" = "fill all fields";
+"EditVC_coordsNotDouble" = "coords must be number value";
+"EditVC_degreeNotDouble" = "degree must be number value";
+"EditVC_editButton" = "edit";
